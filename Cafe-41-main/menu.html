@@ -28,10 +28,10 @@
          <i class="fa-solid fa-utensils" id="order-icon"></i>
          <span id="cart-count">0</span>
          <div id="cart-items" class="cart-items hidden">
-             <h2>Cart Items</h2>
+             <h2>YOUR CART ITEMS</h2>
              <ul id="cart-items-list"></ul>
              <button id="cancel-btn">Cancel</button>
-             <button id="checkout-btn">Checkout</button>
+             <button id="checkout-btn"> Proceed to Checkout</button>
          </div>
        </div>
      </div>
@@ -2058,6 +2058,27 @@
                 cartItemsList.appendChild(listItem);
             });
         }
+        function showCartItems() {
+            cartItemsList.innerHTML = '';
+            let totalPrice = 0;
+            cart.forEach(item => {
+                const listItem = document.createElement('li');
+                    listItem.textContent = `${item.name} - ₱${item.price}`;
+                    cartItemsList.appendChild(listItem);
+                    totalPrice += parseInt(item.price);
+            });
+                const totalItem = document.createElement('li');
+                    totalItem.textContent = `Total: ₱${totalPrice}`;
+                    cartItemsList.appendChild(totalItem);
+
+                    function updateCartCount() {
+                    let totalPrice = 0;
+                     cart.forEach(item => {
+                     totalPrice += parseInt(item.price);
+  });
+                    cartCountElement.textContent = `${cart.length} - ₱${totalPrice}`;
+}
+}
     });
 </script>
 </body>
